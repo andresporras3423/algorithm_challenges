@@ -1,0 +1,55 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_testResults&Sequence_1",
+        "dt_solutions&Sequence_1",
+        "dt_questions&Sequence_1",
+        "db_connection&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "solution1.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_solutions&Sequence_4",
+        "dt_questions&Sequence_4",
+        "solution1&Sequence_2",
+        "a&Sequence_2",
+        "b&Sequence_2",
+        "c&Sequence_2",
+        "solution2&Sequence_2",
+        "id&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "db_connection"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "question1.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_testResults&Sequence_1",
+        "db_connection&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
