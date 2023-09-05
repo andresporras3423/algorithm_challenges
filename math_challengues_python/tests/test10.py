@@ -8,30 +8,19 @@ import math
 def test(cursor, conn):
     data_to_insert = []
     cursor.execute('''SELECT *
-       FROM [math_challenges].[dbo].[questions_9]''')
+       FROM [math_challenges].[dbo].[questions_10]''')
     rows = cursor.fetchall()
     for row in rows:
-        numbers = [str(s) for s in row.init_position]
-        i=0
-        list_changes=[]
-        while i<len(numbers):
-            j=1
-            while j<len(numbers)-i:
-                if(int(numbers[j])<int(numbers[j-1])):
-                    temp=numbers[j]
-                    numbers[j]=numbers[j-1]
-                    numbers[j-1]=temp
-                    list_changes.append("".join(numbers))
-                j+=1
-            i+=1
-        solution= "-".join(list_changes)
+        numbers = [float(s) for s in row.list_numbers.split(',')]
+        mean = sum(numbers)/len(numbers)
+        solution = math.sqrt(sum([abs(s-mean) ** 2 for s in numbers])/len(numbers))
         data_to_insert.append([row.id,solution])
-    insert_query = "INSERT INTO [math_challenges].[dbo].[solutions_9] values (?, ?)"
+    insert_query = "INSERT INTO [math_challenges].[dbo].[solutions_10] values (?, ?)"
     # print(data_to_insert)
     cursor.executemany(insert_query, [(row[0], row[1]) for row in data_to_insert])
     conn.commit()
     try:
-        cursor.execute('EXEC [dbo].[check_question9]')
+        cursor.execute('EXEC [dbo].[check_question10]')
         rows = cursor.fetchall()
         conn.commit()  # Commit the transaction
         print(f"corrects: {rows[0].corrects}, totals: {rows[0].totals}") 
@@ -40,6 +29,3 @@ def test(cursor, conn):
         print("Error:", e)  
 
 sql_connection.get_con(test)
-
-
-
